@@ -85,6 +85,20 @@
       "category": "behavior"
     },
 
+    "no-refocus": {
+      "type": "Boolean",
+      "desc": "(Accessibility) When the dropdown gets hidden, do not refocus on the DOM element that previously had focus",
+      "category": "behavior",
+      "addedIn": "v2.18"
+    },
+
+    "no-focus": {
+      "type": "Boolean",
+      "desc": "(Accessibility) When the dropdown gets shown, do not switch focus on it",
+      "category": "behavior",
+      "addedIn": "v2.18"
+    },
+
     "menu-anchor": {
       "type": "String",
       "desc": "Two values setting the starting position or anchor point of the menu relative to its target",

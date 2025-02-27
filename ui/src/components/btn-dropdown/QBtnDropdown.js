@@ -43,6 +43,8 @@ export default createComponent({
     persistent: Boolean,
     noRouteDismiss: Boolean,
     autoClose: Boolean,
+    noRefocus: Boolean,
+    noFocus: Boolean,
 
     menuAnchor: {
       type: String,
@@ -177,6 +179,8 @@ export default createComponent({
           persistent: props.persistent,
           noRouteDismiss: props.noRouteDismiss,
           autoClose: props.autoClose,
+          noFocus: props.noFocus,
+          noRefocus: props.noRefocus,
           anchor: props.menuAnchor,
           self: props.menuSelf,
           offset: props.menuOffset,
