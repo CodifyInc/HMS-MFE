@@ -70,7 +70,8 @@
     "no-esc-dismiss": {
       "type": "Boolean",
       "desc": "User cannot dismiss the popup by hitting ESC key; No need to set it if 'persistent' prop is also set",
-      "category": "behavior"
+      "category": "behavior",
+      "addedIn": "v2.18.0"
     },
 
     "no-route-dismiss": {
@@ -134,7 +135,7 @@
 
   "events": {
     "escape-key": {
-      "desc": "Emitted when ESC key is pressed; Does not get emitted if Menu is 'persistent'"
+      "desc": "Emitted when ESC key is pressed; Does not get emitted if Menu is 'persistent' or it has 'no-esc-dismiss' set"
     },
 
     "click": { "internal": true }

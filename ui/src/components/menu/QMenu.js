@@ -321,8 +321,10 @@ export default createComponent({
     }
 
     function onEscapeKey (evt) {
-      emit('escapeKey')
-      if (!props.noEscDismiss) hide(evt)
+      if (props.noEscDismiss !== true) {
+        emit('escapeKey')
+        hide(evt)
+      }
     }
 
     function updatePosition () {
