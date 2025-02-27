@@ -1,4 +1,4 @@
-/* 
+/*
  * Urdu (Pakistan) Language Pack for Quasar Framework
  * ISO code: ur-PK
  * Author: [Your Name or Team]
@@ -6,7 +6,7 @@
 
 const days = 'اتوار_پیر_منگل_بدھ_جمعرات_جمعہ_ہفتہ'.split('_')
 const daysShort = 'ات_پیر_منگ_بدھ_جمعر_جمعہ_ہف'.split('_')
-// You can refine abbreviations if needed; e.g. 
+// You can refine abbreviations if needed; e.g.
 // 'ات_پیر_من_بد_جم_جمع_ہف' or any shorter versions that make sense.
 
 const months = 'جنوری_فروری_مارچ_اپریل_مئی_جون_جولائی_اگست_ستمبر_اکتوبر_نومبر_دسمبر'.split('_')
@@ -17,7 +17,6 @@ export default {
   isoName: 'ur-PK',
   nativeName: 'اردو (پاکستان)',
   rtl: true,
-
   label: {
     clear: 'صاف کریں',
     ok: 'ٹھیک ہے',
@@ -35,7 +34,6 @@ export default {
     expand: label => (label ? `"${ label }" کو وسیع کریں` : 'وسیع کریں'),
     collapse: label => (label ? `"${ label }" کو سکیڑیں` : 'سکیڑیں')
   },
-
   date: {
     days,
     daysShort,
@@ -48,7 +46,6 @@ export default {
     format24h: true,
     pluralDay: 'دن'
   },
-
   table: {
     noData: 'کوئی ڈیٹا دستیاب نہیں',
     noResults: 'کوئی نتیجہ نہیں ملا',
@@ -62,7 +59,12 @@ export default {
     pagination: (start, end, total) => `${ start }-${ end } / ${ total }`,
     columns: 'کالم'
   },
-
+  pagination: {
+    first: 'لومړی مخ',
+    prev: 'مخکینۍ پاڼه',
+    next: 'بل مخ',
+    last: 'وروستۍ پاڼه'
+  },
   editor: {
     url: 'یو آر ایل',
     bold: 'موٹا',
@@ -108,7 +110,6 @@ export default {
     defaultFont: 'طے شدہ فونٹ',
     viewSource: 'ماخذ دیکھیں'
   },
-
   tree: {
     noNodes: 'کوئی نوڈ دستیاب نہیں',
     noResults: 'کوئی نوڈ نہیں ملا'
