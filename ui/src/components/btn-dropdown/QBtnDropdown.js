@@ -41,6 +41,7 @@ export default createComponent({
 
     cover: Boolean,
     persistent: Boolean,
+    noEscDismiss: Boolean,
     noRouteDismiss: Boolean,
     autoClose: Boolean,
     noRefocus: Boolean,
@@ -177,6 +178,7 @@ export default createComponent({
           cover: props.cover,
           fit: true,
           persistent: props.persistent,
+          noEscDismiss: props.noEscDismiss,
           noRouteDismiss: props.noRouteDismiss,
           autoClose: props.autoClose,
           noFocus: props.noFocus,
