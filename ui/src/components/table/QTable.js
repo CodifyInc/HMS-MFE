@@ -847,6 +847,7 @@ export default createComponent({
               ...btnProps,
               icon: navIcon.value[ 0 ],
               disable: isFirstPage.value,
+              ariaLabel: $q.lang.pagination.first,
               onClick: firstPage
             })
           )
@@ -857,6 +858,7 @@ export default createComponent({
               ...btnProps,
               icon: navIcon.value[ 1 ],
               disable: isFirstPage.value,
+              ariaLabel: $q.lang.pagination.prev,
               onClick: prevPage
             }),
 
@@ -865,6 +867,7 @@ export default createComponent({
               ...btnProps,
               icon: navIcon.value[ 2 ],
               disable: isLastPage.value,
+              ariaLabel: $q.lang.pagination.next,
               onClick: nextPage
             })
           )
@@ -875,6 +878,7 @@ export default createComponent({
               ...btnProps,
               icon: navIcon.value[ 3 ],
               disable: isLastPage.value,
+              ariaLabel: $q.lang.pagination.last,
               onClick: lastPage
             })
           )
