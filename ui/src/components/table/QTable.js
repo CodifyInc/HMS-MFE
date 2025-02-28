@@ -167,7 +167,7 @@ export default createComponent({
 
     watch(
       () => props.tableStyle + props.tableClass + props.tableHeaderStyle + props.tableHeaderClass + containerClass.value,
-      () => { hasVirtScroll.value === true && virtScrollRef.value !== null && virtScrollRef.value.reset() }
+      () => { hasVirtScroll.value === true && virtScrollRef.value?.reset() }
     )
 
     const {

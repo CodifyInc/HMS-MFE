@@ -180,7 +180,7 @@ export default createComponent({
       animating.value = true
 
       if (props.noFocus !== true) {
-        document.activeElement !== null && document.activeElement.blur()
+        document.activeElement?.blur()
         registerTick(focus)
       }
       else {

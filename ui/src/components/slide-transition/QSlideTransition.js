@@ -34,7 +34,7 @@ export default createComponent({
         timerFallback = null
       }
 
-      element !== void 0 && element.removeEventListener('transitionend', animListener)
+      element?.removeEventListener('transitionend', animListener)
       animListener = null
     }
 

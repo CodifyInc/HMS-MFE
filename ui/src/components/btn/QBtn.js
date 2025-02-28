@@ -135,7 +135,7 @@ export default createComponent({
           const onClickCleanup = () => {
             document.removeEventListener('keydown', stopAndPrevent, true)
             document.removeEventListener('keyup', onClickCleanup, passiveCapture)
-            rootRef.value !== null && rootRef.value.removeEventListener('blur', onClickCleanup, passiveCapture)
+            rootRef.value?.removeEventListener('blur', onClickCleanup, passiveCapture)
           }
 
           document.addEventListener('keydown', stopAndPrevent, true)
@@ -218,12 +218,11 @@ export default createComponent({
 
       // needed for IE (because it emits blur when focusing button from focus helper)
       if (
-        e !== void 0
-        && e.type === 'blur'
+        e?.type === 'blur'
         && document.activeElement === rootRef.value
       ) return
 
-      if (e !== void 0 && e.type === 'keyup') {
+      if (e?.type === 'keyup') {
         if (keyboardTarget === rootRef.value && isKeyCode(e, [ 13, 32 ]) === true) {
           // for click trigger
           const evt = new MouseEvent('click', e)
@@ -272,11 +271,11 @@ export default createComponent({
 
       if (keyboardTarget === rootRef.value) {
         document.removeEventListener('keyup', onPressEnd, true)
-        rootRef.value !== null && rootRef.value.removeEventListener('blur', onPressEnd, passiveCapture)
+        rootRef.value?.removeEventListener('blur', onPressEnd, passiveCapture)
         keyboardTarget = null
       }
 
-      rootRef.value !== null && rootRef.value.classList.remove('q-btn--active')
+      rootRef.value?.classList.remove('q-btn--active')
     }
 
     function onLoadingEvt (evt) {

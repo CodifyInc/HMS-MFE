@@ -69,7 +69,7 @@ export default function ({
         e = { target: null }
       }
 
-      if (e.target !== null && e.target.matches('input[type="file"]') === true) {
+      if (e.target?.matches('input[type="file"]') === true) {
         // stop propagation if it's not a real pointer event
         e.clientX === 0 && e.clientY === 0 && stop(e)
       }

@@ -120,7 +120,7 @@ export default createComponent({
 
       if (belowBreakpoint.value === true) {
         const otherInstance = $layout.instances[ otherSide.value ]
-        if (otherInstance !== void 0 && otherInstance.belowBreakpoint === true) {
+        if (otherInstance?.belowBreakpoint === true) {
           otherInstance.hide(false)
         }
 
@@ -622,7 +622,7 @@ export default createComponent({
     })
 
     onBeforeUnmount(() => {
-      layoutTotalWidthWatcher !== void 0 && layoutTotalWidthWatcher()
+      layoutTotalWidthWatcher?.()
 
       if (timerMini !== null) {
         clearTimeout(timerMini)
