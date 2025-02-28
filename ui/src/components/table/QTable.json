@@ -565,7 +565,7 @@
 
     "table-row-style-fn": {
       "type": "Function",
-      "desc": "CSS style to apply to the table rows (which are TR elements)",
+      "desc": "CSS style to apply to the table rows (which are TR elements); For best performance, reference it from your scope and do not define it inline",
       "params": {
         "row": {
           "type": "Object",
@@ -587,7 +587,7 @@
 
     "table-row-class-fn": {
       "type": "Function",
-      "desc": "CSS class(es) to apply the table rows (which are TR elements)",
+      "desc": "CSS class(es) to apply the table rows (which are TR elements); For best performance, reference it from your scope and do not define it inline",
       "params": {
         "row": {
           "type": "Object",
@@ -654,7 +654,7 @@
 
     "card-style-fn": {
       "type": "Function",
-      "desc": "(Grid mode only) CSS style to apply to the row/record card; Has no effect when the 'item' slot is used",
+      "desc": "(Grid mode only) CSS style to apply to the row/record card; Has no effect when the 'item' slot is used; For best performance, reference it from your scope and do not define it inline",
       "params": {
         "row": {
           "type": "Object",
@@ -676,7 +676,7 @@
 
     "card-class-fn": {
       "type": "Function",
-      "desc": "(Grid mode only) CSS class(es) to apply the row/record card; Has no effect when the 'item' slot is used",
+      "desc": "(Grid mode only) CSS class(es) to apply the row/record card; Has no effect when the 'item' slot is used; For best performance, reference it from your scope and do not define it inline",
       "params": {
         "row": {
           "type": "Object",
