@@ -1838,7 +1838,11 @@
           "type": "String",
           "desc": "The suggested icon name (following Quasar convention)",
           "examples": [ "'warning'" ]
-        }
+        },
+        "filter": {
+          "type": [ "String", "Object" ],
+          "desc": "String/Object to filter table with (the 'filter' prop)"
+        },
       }
     }
   },
