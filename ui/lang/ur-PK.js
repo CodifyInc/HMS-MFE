@@ -1,9 +1,3 @@
-/*
- * Urdu (Pakistan) Language Pack for Quasar Framework
- * ISO code: ur-PK
- * Author: [Your Name or Team]
- */
-
 const days = 'اتوار_پیر_منگل_بدھ_جمعرات_جمعہ_ہفتہ'.split('_')
 const daysShort = 'ات_پیر_منگ_بدھ_جمعر_جمعہ_ہف'.split('_')
 // You can refine abbreviations if needed; e.g.
