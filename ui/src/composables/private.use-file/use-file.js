@@ -19,7 +19,10 @@ function filterFiles (files, rejectedFiles, failedPropValidation, filterFn) {
 }
 
 function stopAndPreventDrag (e) {
-  e && e.dataTransfer && (e.dataTransfer.dropEffect = 'copy')
+  if (e?.dataTransfer) {
+    e.dataTransfer.dropEffect = 'copy'
+  }
+
   stopAndPrevent(e)
 }
 
@@ -75,7 +78,7 @@ export default function ({
       }
       else {
         const input = getFileInput()
-        input && input !== e.target && input.click(e)
+        if (input !== e.target) input?.click(e)
       }
     }
   }

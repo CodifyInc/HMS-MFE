@@ -40,7 +40,7 @@ const setOverflowAnchor = __QUASAR_SSR__ || window.getComputedStyle(document.bod
 
       const el = children[ index ]
 
-      if (el && el.dataset) {
+      if (el?.dataset) {
         el.dataset.qVsAnchor = ''
       }
     })

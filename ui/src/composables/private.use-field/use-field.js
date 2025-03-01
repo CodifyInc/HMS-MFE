@@ -269,8 +269,8 @@ export default function (state) {
 
     if (target && (el === null || el.id !== state.targetUid.value)) {
       target.hasAttribute('tabindex') === true || (target = target.querySelector('[tabindex]'))
-      if (target && target !== el) {
-        target.focus({ preventScroll: true })
+      if (target !== el) {
+        target?.focus({ preventScroll: true })
       }
     }
   }

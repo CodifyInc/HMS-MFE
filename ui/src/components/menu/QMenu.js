@@ -177,7 +177,7 @@ export default createComponent({
       addFocusFn(() => {
         let node = innerRef.value
 
-        if (node && node.contains(document.activeElement) !== true) {
+        if (node && (node.contains(document.activeElement) !== true)) {
           node = node.querySelector('[autofocus][tabindex], [data-autofocus][tabindex]')
             || node.querySelector('[autofocus] [tabindex], [data-autofocus] [tabindex]')
             || node.querySelector('[autofocus], [data-autofocus]')
@@ -256,10 +256,11 @@ export default createComponent({
           || evt.qClickOutside !== true
         )
       ) {
-        ((evt && evt.type.indexOf('key') === 0
+        ((evt?.type.indexOf('key') === 0
           ? refocusTarget.closest('[tabindex]:not([tabindex^="-"])')
           : void 0
         ) || refocusTarget).focus()
+
         refocusTarget = null
       }
 

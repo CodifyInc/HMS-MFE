@@ -64,7 +64,7 @@ export default function (DefaultComponent, supportsCustomComponent, parentApp) {
 
       const target = vm.$.subTree
 
-      if (target && target.component) {
+      if (target?.component) {
         // account for "script setup" way of declaring component
         if (target.component.proxy && target.component.proxy[ cmd ]) {
           target.component.proxy[ cmd ]()

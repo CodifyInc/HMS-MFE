@@ -39,7 +39,7 @@ function openWindow (url, reject, windowFeatures) {
     return win
   }
   else {
-    reject && reject()
+    reject?.()
   }
 }
 

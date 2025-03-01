@@ -54,7 +54,7 @@ function getBtn (eVm, btn, clickHandler, active = false) {
     disable: btn.disable ? (typeof btn.disable === 'function' ? btn.disable(eVm) : true) : false,
     size: 'sm',
     onClick (e) {
-      clickHandler && clickHandler()
+      clickHandler?.()
       run(e, btn, eVm)
     }
   }, () => child)

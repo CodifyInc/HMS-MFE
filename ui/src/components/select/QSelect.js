@@ -545,7 +545,9 @@ export default createComponent({
         return
       }
 
-      (hasDialog !== true || dialogFieldFocused.value === true) && state.focus()
+      if (hasDialog !== true || dialogFieldFocused.value === true) {
+        state.focus()
+      }
 
       selectInputText()
 

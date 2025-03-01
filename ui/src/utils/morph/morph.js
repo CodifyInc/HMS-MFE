@@ -516,7 +516,10 @@ export default function morph (_options) {
           elTo.style.cssText = elToStyleSaved
           elTo.className = elToClassSaved
         }
-        elToClone.parentNode === elToParent && elToParent.insertBefore(elTo, elToClone)
+
+        if (elToClone.parentNode === elToParent) {
+          elToParent.insertBefore(elTo, elToClone)
+        }
 
         // we clean the spacers
         elFromClone.remove()
