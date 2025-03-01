@@ -130,7 +130,7 @@ export default createComponent({
           // required for iOS and desktop Safari
           && el.contains(rootRef.value) === false
         ) {
-          rootRef.value.focus()
+          e.qAvoidFocus !== true && rootRef.value.focus()
 
           const onClickCleanup = () => {
             document.removeEventListener('keydown', stopAndPrevent, true)
@@ -158,7 +158,7 @@ export default createComponent({
 
         if (e.defaultPrevented !== true) {
           // focus external button if the focus helper was focused before
-          rootRef.value.focus()
+          e.qAvoidFocus !== true && rootRef.value.focus()
 
           keyboardTarget = rootRef.value
           rootRef.value.classList.add('q-btn--active')

@@ -164,7 +164,10 @@ export default createComponent({
     }
 
     function toggleIcon (e, keyboard) {
-      keyboard !== true && blurTargetRef.value?.focus()
+      if (keyboard !== true && e.qAvoidFocus !== true) {
+        blurTargetRef.value?.focus()
+      }
+
       toggle(e)
       stopAndPrevent(e)
     }

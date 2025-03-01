@@ -18,6 +18,8 @@ export default function (props, rootRef) {
   function refocusTarget (e) {
     const root = rootRef.value
 
+    if (e?.qAvoidFocus === true) return
+
     if (e?.type.indexOf('key') === 0) {
       if (
         document.activeElement !== root
