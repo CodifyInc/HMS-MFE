@@ -144,7 +144,7 @@ This is the most convenient way. Just importing the variables is enough to make 
 ```html
 <script setup>
 import { matMenu } from '@quasar/extras/material-icons'
-import { mdiAbTesting } from '@quasar/extras/mdi-v6'
+import { mdiAbTesting } from '@quasar/extras/mdi-v7'
 import { fasFont } from '@quasar/extras/fontawesome-v5'
 </script>
 ```
@@ -154,7 +154,7 @@ import { fasFont } from '@quasar/extras/fontawesome-v5'
 ```html
 <script>
 import { matMenu } from '@quasar/extras/material-icons'
-import { mdiAbTesting } from '@quasar/extras/mdi-v6'
+import { mdiAbTesting } from '@quasar/extras/mdi-v7'
 import { fasFont } from '@quasar/extras/fontawesome-v5'
 
 export default {
@@ -177,7 +177,7 @@ Notice in the example below that we are injecting the icons through the `created
 ```html
 <script>
 import { matMenu } from '@quasar/extras/material-icons'
-import { mdiAbTesting } from '@quasar/extras/mdi-v6'
+import { mdiAbTesting } from '@quasar/extras/mdi-v7'
 import { fasFont } from '@quasar/extras/fontawesome-v5'
 
 export default {
@@ -265,7 +265,7 @@ Svg icons are supplied by `@quasar/extras` (although you can supply [your own sv
 
 * Icon names are in camel-case and always begin with "mdi" prefix.
 * Go to [MDI](https://materialdesignicons.com/), look for your desired icon, click on it. A dialog box will appear. Get the title (eg. "account-key"), prefix it with "mdi" and camel-case the result (eg. "mdiAccountKey").
-* Import statement example: `import { mdiAccountKey } from '@quasar/extras/mdi-v6'`.
+* Import statement example: `import { mdiAccountKey } from '@quasar/extras/mdi-v7'`.
 
 #### SVG Fontawesome
 
