@@ -64,7 +64,7 @@ Detailing the Object:
 
 ```js
 {
-  app, // Expressjs app or whatever is returned from src-ssr/webserver -> create()
+  app, // Expressjs app or whatever is returned from src-ssr/server -> create()
   port, // on dev: devServer port; on prod: process.env.PORT or quasar.config > ssr > prodPort
   resolve: {
     urlPath, // (url) => path string with publicPath ensured to be included,
@@ -78,7 +78,7 @@ Detailing the Object:
   },
   render, // (ssrContext) => html string
   serve: {
-    static, // ({ urlPath = '/', pathToServe = '.', opts = {} }) => void (OR whatever returned by src-ssr/webserver -> serveStaticContent())
+    static, // ({ urlPath = '/', pathToServe = '.', opts = {} }) => void (OR whatever returned by src-ssr/server -> serveStaticContent())
     error // DEV only; ({ err, req, res }) => void
   }
 }
