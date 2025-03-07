@@ -51,7 +51,7 @@ import {
  *     root, // path string of the root folder
  *     public // path string of the public folder
  *   },
- *   render, // (ssrContext) => html string
+ *   render // (ssrContext) => html string
  * })
  */
 export const create = defineSsrCreate((/* { ... } */) => {
@@ -99,7 +99,7 @@ export const create = defineSsrCreate((/* { ... } */) => {
  *   },
  *   render, // (ssrContext) => html string
  *   serve: {
- *     static // ({ urlPath = '/', pathToServe = '.', opts = {} }) => void (OR whatever returned by serveStaticContent()),
+ *     static, // ({ urlPath = '/', pathToServe = '.', opts = {} }) => void (OR whatever returned by serveStaticContent())
  *     error // DEV only; ({ err, req, res }) => void
  *   },
  * })
@@ -138,7 +138,7 @@ export const listen = defineSsrListen(({ app, devHttpsApp, port }) => {
  *     public // path string of the public folder
  *   },
  *   serve: {
- *     static // ({ urlPath = '/', pathToServe = '.', opts = {} }) => void (OR whatever returned by serveStaticContent()),
+ *     static, // ({ urlPath = '/', pathToServe = '.', opts = {} }) => void (OR whatever returned by serveStaticContent())
  *     error // DEV only; ({ err, req, res }) => void
  *   },
  *   render, // (ssrContext) => html string
