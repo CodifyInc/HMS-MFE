@@ -110,7 +110,7 @@ $ pnpm add -D @cloudflare/vite-plugin wrangler
 $ bun add -D @cloudflare/vite-plugin wrangler
 ```
 
-Next, modify your `quasar.config` file to include the Cloudflare Vite plugin:
+Next, modify your `/quasar.config` file to include the Cloudflare Vite plugin:
 
 ```js /quasar.config file
 import { cloudflare } from "@cloudflare/vite-plugin"
@@ -141,11 +141,9 @@ Create a `wrangler.jsonc` file in your project root:
 Add the deploy script to your `package.json`:
 
 ```json /package.json
-{
-  "scripts": {
-    "build": "quasar build",
-    "deploy": "wrangler pages deploy"
-  }
+"scripts": {
+  "build": "quasar build",
+  "deploy": "wrangler pages deploy"
 }
 ```
 
@@ -202,6 +200,7 @@ $ vercel
 The Vercel CLI should now display information regarding your deployment, like the URL. That's it. You're done.
 
 ### Vercel configuration tips
+
 You should consider adding some additional configurations to your project.
 
 * Important: Vercel expects the build results to be in `/public` directory, and _Quasar_ has it in `/dist/spa` by default, so you will need to override the `Output Directory` in your Vercel project. Set it to `dist/spa` through the Vercel web ui under your project's settings > Build & Development Settings.
@@ -209,14 +208,10 @@ You should consider adding some additional configurations to your project.
 * Since Vercel expects the _build_ script to be defined, you may add in `package.json` the following scripts:
 
 ```json /package.json
-  {
-    ..
-    "scripts": {
-      ...
-      "build": "quasar build",
-      "deploy": "vercel"
-    }
-  }
+"scripts": {
+  "build": "quasar build",
+  "deploy": "vercel"
+}
 ```
 
 * In order to support SPA routing in the deployed app, consider adding `vercel.json` file in your root folder:
@@ -229,6 +224,7 @@ You should consider adding some additional configurations to your project.
   ]
 }
 ```
+
 ## Deploying with Heroku
 
 Unfortunately, Heroku does not support static sites out of the box. But don't worry, we just need to add an HTTP server to our project so Heroku can serve our Quasar application.
