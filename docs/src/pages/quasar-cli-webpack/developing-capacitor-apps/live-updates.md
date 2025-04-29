@@ -15,8 +15,15 @@ cd src-capacitor
 
 Then, install the plugin:
 
-```bash
-npm install @capawesome/capacitor-live-update
+```tabs
+<<| bash Yarn |>>
+$ yarn add @capawesome/capacitor-live-update
+<<| bash NPM |>>
+$ npm install --save @capawesome/capacitor-live-update
+<<| bash PNPM |>>
+$ pnpm add @capawesome/capacitor-live-update
+<<| bash Bun |>>
+$ bun add @capawesome/capacitor-live-update
 ```
 
 After that, you need to sync the changes with your native projects:
@@ -31,9 +38,9 @@ Next, you need to configure the plugin to work with [Capawesome Cloud](https://c
 
 ### App ID
 
-In order for your app to identify itself to Capawesome Cloud, you need to set the `appId` in your `capacitor.config.ts` file. For this, you need to create an app on the [Capawesome Cloud Console](https://console.cloud.capawesome.io/) and get the App ID.
+In order for your app to identify itself to Capawesome Cloud, you need to set the `appId` in your `capacitor.config` file. For this, you need to create an app on the [Capawesome Cloud Console](https://console.cloud.capawesome.io/) and get the App ID.
 
-```json
+```json /src-capacitor/capacitor.config file
 {
   "plugins": {
     "LiveUpdate": {
@@ -55,15 +62,15 @@ npx cap sync
 
 The most basic usage of the Live Update plugin is to call the [`sync(...)`](https://capawesome.io/plugins/live-update/#sync) method when the app starts. This method checks for updates, downloads them if available, and sets them as the next bundle to be applied. You can then call the [`reload()`](https://capawesome.io/plugins/live-update/#reload) method to apply the update immediately. If the [`reload()`](https://capawesome.io/plugins/live-update/#reload) method is not called, the new bundle will be used on the next app start.
 
-```ts
-import { LiveUpdate } from "@capawesome/capacitor-live-update";
+```js
+import { LiveUpdate } from "@capawesome/capacitor-live-update"
 
 const sync = async () => {
-  const result = await LiveUpdate.sync();
+  const result = await LiveUpdate.sync()
   if (result.nextBundleId) {
-    await LiveUpdate.reload();
+    await LiveUpdate.reload()
   }
-};
+}
 ```
 
 ## Publishing updates
@@ -77,8 +84,15 @@ quasar build -m capacitor -T [android|ios]
 This will create a `src-capacitor/www` folder with the build output of your web app. You can then upload this folder to Capawesome Cloud using the [Capawesome CLI](https://capawesome.io/cloud/cli/).
 To install the Capawesome CLI, run the following command:
 
-```bash
-npm install -g @capawesome/cli
+```tabs
+<<| bash Yarn |>>
+$ yarn global add @capawesome/cli
+<<| bash NPM |>>
+$ npm i -g @capawesome/cli
+<<| bash PNPM |>>
+$ pnpm add -g @capawesome/cli
+<<| bash Bun |>>
+$ bun install -g @capawesome/cli
 ```
 
 After installing the Capawesome CLI, you need to log in to your Capawesome Cloud account. Run the following command and follow the instructions:
@@ -95,4 +109,3 @@ npx capawesome apps:bundles:create --path src-capacitor/www
 
 Congratulations! You have successfully published your first live update. You can now test it by running your app on a device or emulator. The app will check for updates and apply them if available.
 Feel free to check out the [documentation](https://capawesome.io/plugins/live-update/) of the Live Update plugin to see what else you can do with it.
-
