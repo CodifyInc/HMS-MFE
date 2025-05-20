@@ -160,7 +160,7 @@
     "@mdi/svg": "7.4.47",
     "@xmldom/xmldom": "0.9.7",
     "animate.css": "4.1.1",
-    "bootstrap-icons": "^1.11.3",
+    "bootstrap-icons": "^1.13.1",
     "cross-fetch": "^4.1.0",
     "cross-spawn": "^7.0.6",
     "eva-icons": "1.1.3",
