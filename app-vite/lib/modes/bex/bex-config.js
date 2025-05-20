@@ -42,21 +42,36 @@ export const quasarBexConfig = {
     ) {
       cfg.build.outDir = join(quasarConf.build.distDir, 'www')
     }
+    else { // is dev for chrome
+      cfg.plugins.push({
+        name: 'quasar:bex:ws',
+        enforce: 'post',
+        configResolved (viteConfig) {
+          // Vite 6.0.9+ compat; we need the token!
+          // No other way to pass it to Vite than through a plugin with configResolved
+          viteConfig.webSocketToken = quasarConf.metaConf.bexWsToken
+        }
+      })
+    }
 
     return extendViteConfig(cfg, quasarConf, { isClient: true })
   },
 
   bexScript (quasarConf, entry = generateDefaultEntry(quasarConf)) {
     const cfg = createBrowserEsbuildConfig(quasarConf, { compileId: `bex:script:${ entry.name }` })
+    const buildEnv = {
+      __QUASAR_BEX_SCRIPT_NAME__: entry.name
+    }
+
+    if (quasarConf.ctx.dev) {
+      // Vite 6.0.9+ compat; we need the token!
+      buildEnv.__QUASAR_BEX_WS_TOKEN__ = quasarConf.metaConf.bexWsToken
+      buildEnv.__QUASAR_BEX_SERVER_PORT__ = quasarConf.devServer.port || 0
+    }
 
     cfg.define = {
       ...cfg.define,
-      ...getBuildSystemDefine({
-        buildEnv: {
-          __QUASAR_BEX_SCRIPT_NAME__: entry.name,
-          __QUASAR_BEX_SERVER_PORT__: quasarConf.devServer.port || 0
-        }
-      })
+      ...getBuildSystemDefine({ buildEnv })
     }
 
     cfg.entryPoints = [ entry.from ]

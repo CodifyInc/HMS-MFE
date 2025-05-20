@@ -6,10 +6,8 @@ export async function script ({ scope, utils }) {
       message: 'Pick Quasar App CLI variant:',
       initial: 0,
       choices: [
-        { title: 'Quasar App CLI with Vite 6 (v2)', value: 'vite-2', description: 'recommended' },
-        { title: 'Quasar App CLI with Webpack (v4)', value: 'webpack-4' },
-        { title: '[Legacy] Quasar App CLI with Vite 2 (v1)', value: 'vite-1' },
-        { title: '[Legacy] Quasar App CLI with Webpack (v3)', value: 'webpack-3' }
+        { title: 'Quasar App CLI with Vite', value: 'vite-2', description: 'recommended' },
+        { title: 'Quasar App CLI with Webpack', value: 'webpack-4' }
       ]
     },
     {

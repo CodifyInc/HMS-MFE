@@ -273,7 +273,7 @@ Preparations:
   + import { defineStore } from '#q-app/wrappers'
 
   - import { ssrMiddleware } from 'quasar/wrappers'
-  + import { defineSsrMiddleware }from '#q-app/wrappers'
+  + import { defineSsrMiddleware } from '#q-app/wrappers'
 
   - import { ssrCreate } from 'quasar/wrappers'
   + import { defineSsrCreate } from '#q-app/wrappers'
@@ -590,13 +590,14 @@ As you can see, you can now specify multiple preload scripts should you need the
 :::
 
 ```diff
-function createWindow () {
+- function createWindow () {
++ async function createWindow () {
    // ...
 -  mainWindow.loadURL(process.env.APP_URL)
 +  if (process.env.DEV) {
-+    mainWindow.loadURL(process.env.APP_URL)
++    await mainWindow.loadURL(process.env.APP_URL)
 +  } else {
-+    mainWindow.loadFile('index.html')
++    await mainWindow.loadFile('index.html')
 +  }
 ```
 
@@ -615,7 +616,7 @@ const currentDir = fileURLToPath(new URL('.', import.meta.url))
 
 let mainWindow
 
-function createWindow () {
+async function createWindow () {
   /**
    * Initial window options
    */
@@ -635,9 +636,9 @@ function createWindow () {
   })
 
   if (process.env.DEV) {
-    mainWindow.loadURL(process.env.APP_URL)
+    await mainWindow.loadURL(process.env.APP_URL)
   } else {
-    mainWindow.loadFile('index.html')
+    await mainWindow.loadFile('index.html')
   }
 
   if (process.env.DEBUGGING) {
@@ -676,7 +677,25 @@ app.on('activate', () => {
 The distributables (your production code) will be compiled to ESM form.
 :::
 
-Most changes refer to editing your `/src-ssr/server.js` file. Since you can now use HTTPS while developing your app too, you need to make the following changes to the file:
+```diff /src-ssr/middlewares/*
+- import { ssrMiddleware } from 'quasar/wrappers'
++ import { defineSsrMiddleware } from '#q-app/wrappers'
+
+- export default ssrMiddleware({
++ export default defineSsrMiddleware(({
+  app,
+  port,
+  resolve,
+  publicPath,
+  folders,
+  render,
+  serve
+}) => {
+  // something to do with the server "app"
+})
+```
+
+The other changes refer to editing your `/src-ssr/server.js` file. Since you can now use HTTPS while developing your app too, you need to make the following changes to the file:
 
 ```diff /src-ssr/server.js > listen
 - import { ssrListen } from 'quasar/wrappers'
@@ -763,7 +782,7 @@ Also, the `renderPreloadTag()` function can now take an additional parameter (`s
 - import { ssrRenderPreloadTag } from 'quasar/wrappers'
 + import { defineSsrRenderPreloadTag } from '#q-app/wrappers'
 
-+ export const renderPreloadTag = ssrRenderPreloadTag((file, { ssrContext }) => {
++ export const renderPreloadTag = defineSsrRenderPreloadTag((file, { ssrContext }) => {
 +  // ...
 + })
 ```

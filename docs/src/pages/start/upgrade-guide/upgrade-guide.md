@@ -86,32 +86,6 @@ $ pnpm add vue@3 @quasar/extras@latest
 $ bun add vue@3 @quasar/extras@latest
 ```
 
-### With Vue CLI
-
-```bash
-$ yarn upgrade quasar
-# or other package manager equivalent
-```
-
-Optionally, you may also want to make sure that you have the latest `vue-cli-plugin-quasar` package.
-
-It's recommended to keep `vue` and `@quasar/extras` packages up to date too:
-
-```tabs
-<<| bash Yarn |>>
-# optional, but recommended
-$ yarn add vue@3 @quasar/extras@latest
-<<| bash NPM |>>
-# optional, but recommended
-$ npm install --save vue@3 @quasar/extras@latest
-<<| bash PNPM |>>
-# optional, but recommended
-$ pnpm add vue@3 @quasar/extras@latest
-<<| bash Bun |>>
-# optional, but recommended
-$ bun add vue@3 @quasar/extras@latest
-```
-
 ## Migrate to v2 from v1
 
 **This guide refers to Quasar CLI & UMD projects**, but information from here can be used for Vue CLI too. For developers already using Vue CLI on your projects you can check out how to install the [vue-cli-plugin-quasar](/start/vue-cli-plugin) package that works with Quasar v2. You will also need to make a few changes to your main.js (and also upgrade your Vue CLI project to support Vue 3) too (best way currently is to generate a new Vue CLI project for Vue 3 and then following the [install steps](/start/vue-cli-plugin#add-vue-cli-quasar-plugin) for the vue-cli-plugin-quasar and check out the changes incurred to that /src folder, then apply the same principle to your current Vue CLI project).
@@ -250,7 +224,7 @@ Before starting, it is highly suggested to make a copy of your current working p
   $ bun add --dev @quasar/app-webpack@3
   $ bun add quasar@2 vue@3 vue-router@4
   ```
-7) **Remove** `.quasar` and `node_modules` folders, and `package-lock.json` / `yarn.lock` / `pnpm-lock.yaml` / `bun.lockb` file, then run `yarn/npm/pnpm/bun install` to regenerate the lock file. This forces the upgrade of the whole dependency graph (deep dependencies included) and avoids troubles with mismatching packages, especially webpack 5 related ones.
+7) **Remove** `.quasar` and `node_modules` folders, and `package-lock.json` / `yarn.lock` / `pnpm-lock.yaml` / `bun.lock` / `bun.lockb` file, then run `yarn/npm/pnpm/bun install` to regenerate the lock file. This forces the upgrade of the whole dependency graph (deep dependencies included) and avoids troubles with mismatching packages, especially webpack 5 related ones.
 8) If you are using ESLint, then edit `/.eslintrc.cjs` (also rename from `/.eslintrc.js`):
   ```js
   // old way
@@ -334,20 +308,20 @@ You can generate a new Quasar v2 project as shown below and then you can port yo
 ```tabs
 <<| bash Yarn |>>
 $ yarn create quasar
-# then pick "App with Quasar CLI" and "Quasar v2"
+# then pick "App with Quasar CLI"
 # decide if you want "Quasar CLI with Vite" or "Quasar CLI with Webpack"
 <<| bash NPM |>>
 $ npm init quasar@latest
-# then pick "App with Quasar CLI" and "Quasar v2"
+# then pick "App with Quasar CLI"
 # decide if you want "Quasar CLI with Vite" or "Quasar CLI with Webpack"
 <<| bash PNPM |>>
 $ pnpm create quasar@latest
-# then pick "App with Quasar CLI" and "Quasar v2"
+# then pick "App with Quasar CLI"
 # decide if you want "Quasar CLI with Vite" or "Quasar CLI with Webpack"
 <<| bash Bun |>>
 # experimental support
 $ bun create quasar@latest
-# then pick "App with Quasar CLI" and "Quasar v2"
+# then pick "App with Quasar CLI"
 # decide if you want "Quasar CLI with Vite" or "Quasar CLI with Webpack"
 ```
 

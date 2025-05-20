@@ -28,7 +28,14 @@ export default {
     }).format(date),
     firstDayOfWeek: 0, // 0-6, 0 - Sunday, 1 Monday, ...
     format24h: false,
-    pluralDay: '天'
+    pluralDay: '天',
+    prevMonth: '上个月',
+    nextMonth: '下个月',
+    prevYear: '上一年',
+    nextYear: '下一年',
+    today: '今天',
+    prevRangeYears: range => `以前${ range }年`,
+    nextRangeYears: range => `接下来${ range }年`
   },
   table: {
     noData: '没有可用数据',
@@ -39,6 +46,12 @@ export default {
     allRows: '全部',
     pagination: (start, end, total) => start + '-' + end + ' / ' + total,
     columns: '列'
+  },
+  pagination: {
+    first: '第一页',
+    prev: '上一页',
+    next: '下一页',
+    last: '最后一页'
   },
   editor: {
     url: 'URL',

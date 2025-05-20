@@ -1,7 +1,5 @@
 export async function script ({ scope, utils }) {
   await utils.prompts(scope, [
-    utils.commonPrompts.quasarVersion,
-
     {
       type: 'text',
       name: 'name',
@@ -99,7 +97,7 @@ export async function script ({ scope, utils }) {
     }
   ])
 
-  const { script } = await import(`./quasar-${ scope.quasarVersion }/index.js`)
+  const { script } = await import(`./quasar-v2/index.js`)
   await script({ scope, utils })
 
   // we don't want to install

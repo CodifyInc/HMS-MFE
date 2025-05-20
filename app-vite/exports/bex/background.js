@@ -43,9 +43,9 @@ function interceptRequests (devServerPort) {
   })
 }
 
-function connectToDevServer (devServerPort) {
+function connectToDevServer (devServerPort, wsToken) {
   const pingUrl = `http://localhost:${ devServerPort }/__vite_ping`
-  const socket = new WebSocket(`ws://localhost:${ devServerPort }`, 'vite-hmr')
+  const socket = new WebSocket(`ws://localhost:${ devServerPort }?token=${ wsToken }`, 'vite-hmr')
 
   const contentScriptPortList = new Set()
   const contentScriptPortNameRE = /^quasar@hmr\/content-script\//
@@ -128,9 +128,10 @@ function connectToDevServer (devServerPort) {
  */
 if (process.env.DEV === true && process.env.TARGET === 'chrome') {
   const devServerPort = process.env.__QUASAR_BEX_SERVER_PORT__
+  const wsToken = process.env.__QUASAR_BEX_WS_TOKEN__
 
   interceptRequests(devServerPort)
-  connectToDevServer(devServerPort)
+  connectToDevServer(devServerPort, wsToken)
 }
 
 let scriptHasBridge = false

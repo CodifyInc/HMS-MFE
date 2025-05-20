@@ -185,6 +185,20 @@ function temporaryFixVueFlags (rawDefine) {
   }
 }
 
+let wsToken = null
+function createWsToken () {
+  if (wsToken === null) {
+    const list = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+    const listLen = list.length
+    wsToken = ''
+    for (let i = 0; i < 12; i++) {
+      wsToken += list.charAt(Math.floor(Math.random() * listLen))
+    }
+  }
+
+  return wsToken
+}
+
 export class QuasarConfigFile {
   /** @type {import('../types/configuration/context').QuasarContext} */
   #ctx
@@ -809,6 +823,11 @@ export class QuasarConfigFile {
         dirname(cfg.build.distDir),
         `bex-${ this.#ctx.targetName }${ name !== 'bex' ? `-${ name }` : '' }${ this.#ctx.dev ? '--dev' : '' }`
       )
+
+      if (this.#ctx.dev) {
+        // we need this token to remain the same across quasar.config changes + server restarts
+        cfg.metaConf.bexWsToken = createWsToken()
+      }
     }
 
     if (!isAbsolute(cfg.build.distDir)) {
