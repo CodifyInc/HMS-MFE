@@ -1,6 +1,6 @@
 {
   "name": "@quasar/extras",
-  "version": "1.16.17",
+  "version": "1.17.0",
   "description": "Quasar Framework fonts, icons and animations",
   "scripts": {
     "lint": "eslint --ext .js,.cjs ./ --fix --report-unused-disable-directives",
